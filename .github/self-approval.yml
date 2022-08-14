@@ -1,0 +1,10 @@
+_extends: github-settings
+
+self_approval_comments:
+  - "I self-approve!"
+
+from_author: []
+
+apply_labels:
+  - "can-be-merged"
+  
