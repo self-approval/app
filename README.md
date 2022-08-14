@@ -48,7 +48,7 @@ See [Deployment - Probot](https://probot.github.io/docs/deployment/#register-the
 
 ### Set the **Webhook URL**
 
-Set the **Webhook URL** of your GitHub App to your domain or `ip:port` followed by `/api/webhooks`.
+Set the **Webhook URL** of your GitHub App to your domain or `ip:port`.
 
 ### Update the app
 
