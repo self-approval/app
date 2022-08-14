@@ -41,9 +41,9 @@ See [Deployment - Probot](https://probot.github.io/docs/deployment/#register-the
    - `GITHUB_CLIENT_SECRET`: the Client Secret of the app, which you can generate and get from the [app settings page](https://github.com/settings/apps).
    - `WEBHOOK_SECRET`: the **Webhook Secret** that you generated when you created the app.
    - `PRIVATE_KEY`: the contents of the private key you downloaded after creating the app.
-3. Run `yarn install` to install the dependencies
-4. Run `yarn build` to build the app.
-5. Run `yarn start --port [PORT]` to start the app. You can change the port to any port number you want.
+3. Run `npm install` to install the dependencies
+4. Run `npm build` to build the app.
+5. Run `npm start --port [PORT]` to start the app. You can change the port to any port number you want.
 6. Setup HTTPS and domain name for the app. You can use multiple ways to do this (e.g. Nginx & Certbot).
 
 ### Set the **Webhook URL**
