@@ -43,7 +43,7 @@ See [Deployment - Probot](https://probot.github.io/docs/deployment/#register-the
    - `PRIVATE_KEY`: the contents of the private key you downloaded after creating the app.
 3. Run `npm install` to install the dependencies
 4. Run `npm build` to build the app.
-5. Run `npm start --port [PORT]` to start the app. You can change the port to any port number you want.
+5. Run `npm start` to start the app.
 6. Setup HTTPS and domain name for the app. You can use multiple ways to do this (e.g. Nginx & Certbot).
 
 ### Set the **Webhook URL**
@@ -54,6 +54,10 @@ Set the **Webhook URL** of your GitHub App to your domain or `ip:port` followed 
 
 1. Pull the latest code from the repository.
 2. Redo the steps 3 to 5 for deploying the app.
+
+### Change the port
+
+Go to the `.env` file and change the value of `PORT` to the port you want to use.
 
 ## Configuration
 
