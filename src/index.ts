@@ -1,13 +1,18 @@
 import { Probot, Context } from "probot";
 
-export = (app: Probot) => {
+module.exports = (app: Probot) => {
   app.on(["issue_comment.created", "issue_comment.edited"], async (context) => {
     console.log("issue_comment.created or issue_comment.edited")
 
-    if (!context.payload.issue.pull_request || context.isBot) {
+    if (context.isBot) {
+      // Ignore comments if this issue was created by the bot=
+      console.log("This comment was created by the bot")
+      return;
+    }
+
+    if (!context.payload.issue.pull_request) {
       // Ignore comments if this issue is not a PR
-      // or if the comment was created by the bot
-      console.log("Not a PR / Is a bot comment")
+      console.log("This comment is not created in a PR")
       return;
     }
 
