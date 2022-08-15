@@ -41,6 +41,16 @@ describe("self-approve bot", () => {
     expect(nock.isDone()).toBeTruthy();
   });
 
+  test("Comment added to a Issue not Pull Request", async () => {
+    const payload = require("./fixtures/issue.commented.json");
+
+    // Receive a webhook event
+    await probot.receive({ name: "issue_comment", payload });
+
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    expect(nock.isDone()).toBeTruthy();
+  });
+
   afterEach(() => {
     nock.cleanAll();
     nock.enableNetConnect();
