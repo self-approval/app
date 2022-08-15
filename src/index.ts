@@ -2,80 +2,85 @@ import { Probot, Context } from "probot";
 
 module.exports = (app: Probot) => {
   app.on(["issue_comment.created", "issue_comment.edited"], async (context) => {
-    console.log("issue_comment.created or issue_comment.edited")
+    context.log("issue_comment.created or issue_comment.edited");
 
     if (context.isBot) {
       // Ignore comments if this issue was created by the bot=
-      console.log("This comment was created by the bot")
+      context.log("This comment was created by the bot");
+      context.log("Execution finished\n\n");
       return;
     }
 
     if (!context.payload.issue.pull_request) {
       // Ignore comments if this issue is not a PR
-      console.log("This comment is not created in a PR")
+      context.log("This comment is not created in a PR");
+      context.log("Execution finished\n\n");
       return;
     }
 
     // Get the content of the comment
-    const comment = context.payload.comment.body
-    console.log("Comment: " + comment)
+    const comment = context.payload.comment.body;
+    context.log("Comment: " + comment);
 
     // Read the configuration
-    const config: any = await context.config('self-approval.yml')
+    const config: any = await context.config('self-approval.yml');
 
     // Check if the comment is a self-approval
-    const isSelfApproval = config.self_approval_comments.includes(comment)
+    const isSelfApproval = config.self_approval_comments.includes(comment);
     if (!isSelfApproval) {
-      console.log("Not a self-approval comment")
+      context.log("Not a self-approval comment");
+      context.log("Execution finished\n\n");
       return;
     }
-    console.log("Is a self-approval comment")
+    context.log("Is a self-approval comment");
 
     // Get the author of the PR and the comment
-    const prUser = context.payload.issue.user.login
-    console.log("PR User: " + prUser)
-    const reviewUser = context.payload.comment.user.login
-    console.log("Review User: " + reviewUser)
+    const prUser = context.payload.issue.user.login;
+    context.log("PR User: " + prUser);
+    const reviewUser = context.payload.comment.user.login;
+    context.log("Review User: " + reviewUser);
     // Check if they are the same user
     if (prUser !== reviewUser) {
-      console.log("Not the same user")
+      context.log("Not the same user");
       // If they are different users, tell the user that they are not allowed to self-approve this PR
       context.octokit.reactions.createForIssueComment({
         owner: context.payload.repository.owner.login,
         repo: context.payload.repository.name,
         comment_id: context.payload.comment.id,
         content: "-1"
-      })
-      console.log("Reacted with -1")
+      });
+      context.log("Reacted with -1");
       const issueComment = context.issue({
         body: "You are not allowed to self-approve others Pull Request!",
       });
       await context.octokit.issues.createComment(issueComment);
-      console.log("Not allowed comment sent")
-      return
+      context.log("Not allowed comment sent");
+      context.log("Execution finished\n\n");
+      return;
     }
-    console.log("Same user")
+    context.log("Same user");
 
     // Check if the user is in the whitelist
-    const userSatisfied = config.from_author.length === 0 || config.from_author.includes(prUser)
+    const userSatisfied = config.from_author.length === 0 || config.from_author.includes(prUser);
     if (!userSatisfied) {
-      console.log("User not in whitelist")
+      context.log("User not in whitelist");
       // If the user is not in the whitelist, tell the user that they are not allowed to use this command
       context.octokit.reactions.createForIssueComment({
         owner: context.payload.repository.owner.login,
         repo: context.payload.repository.name,
         comment_id: context.payload.comment.id,
         content: "-1"
-      })
-      console.log("Reacted with -1")
+      });
+      context.log("Reacted with -1");
       const issueComment = context.issue({
         body: "You are not allowed to use this command!",
       });
       await context.octokit.issues.createComment(issueComment);
-      console.log("Not allowed comment sent")
-      return
+      context.log("Not allowed comment sent");
+      context.log("Execution finished\n\n");
+      return;
     }
-    console.log("User in whitelist")
+    context.log("User in whitelist");
 
     // Add a requirement met confirmation to the comment
     context.octokit.reactions.createForIssueComment({
@@ -83,13 +88,13 @@ module.exports = (app: Probot) => {
       repo: context.payload.repository.name,
       comment_id: context.payload.comment.id,
       content: "+1"
-    })
-    console.log("Reacted with +1")
+    });
+    context.log("Reacted with +1");
 
     // Approve the PR
-    approvePullRequest(context)
-    applyLabels(context, config.apply_labels as string[])
-    console.log("PR approved")
+    approvePullRequest(context);
+    applyLabels(context, config.apply_labels as string[]);
+    context.log("PR approved");
 
     // Add a confirm reaction to the comment
     context.octokit.reactions.createForIssueComment({
@@ -97,9 +102,9 @@ module.exports = (app: Probot) => {
       repo: context.payload.repository.name,
       comment_id: context.payload.comment.id,
       content: "hooray"
-    })
-    console.log("Reacted with hooray")
-    console.log("Done")
+    });
+    context.log("Reacted with hooray");
+    context.log("Execution finished\n\n");
 
   });
 };
