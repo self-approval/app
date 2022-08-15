@@ -3,11 +3,9 @@
 
 import nock from "nock";
 // Requiring our app implementation
-import myProbotApp from "../src";
-import { Probot, ProbotOctokit } from "probot";
-// Requiring our fixtures
-import payload from "./fixtures/issues.opened.json";
-const issueCreatedBody = { body: "Thanks for opening this issue!" };
+const myProbotApp = require("../src");
+const { Probot, ProbotOctokit } = require("probot");
+
 const fs = require("fs");
 const path = require("path");
 
@@ -16,13 +14,13 @@ const privateKey = fs.readFileSync(
   "utf-8"
 );
 
-describe("My Probot app", () => {
+describe("self-approve bot", () => {
   let probot: any;
 
   beforeEach(() => {
     nock.disableNetConnect();
     probot = new Probot({
-      appId: 123,
+      appId: 123456,
       privateKey,
       // disable request throttling and retries for testing
       Octokit: ProbotOctokit.defaults({
@@ -30,32 +28,17 @@ describe("My Probot app", () => {
         throttle: { enabled: false },
       }),
     });
-    // Load our app into probot
-    probot.load(myProbotApp);
+    myProbotApp(probot);
   });
 
-  test("creates a comment when an issue is opened", async () => {
-    const mock = nock("https://api.github.com")
-      // Test that we correctly return a test token
-      .post("/app/installations/2/access_tokens")
-      .reply(200, {
-        token: "test",
-        permissions: {
-          issues: "write",
-        },
-      })
-
-      // Test that a comment is posted
-      .post("/repos/hiimbex/testing-things/issues/1/comments", (body: any) => {
-        expect(body).toMatchObject(issueCreatedBody);
-        return true;
-      })
-      .reply(200);
+  test("Pull Request comment created by a bot", async () => {
+    const payload = require("./fixtures/pull_request.bot_commented.json");
 
     // Receive a webhook event
-    await probot.receive({ name: "issues", payload });
+    await probot.receive({ name: "issue_comment", payload });
 
-    expect(mock.pendingMocks()).toStrictEqual([]);
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    expect(nock.isDone()).toBeTruthy();
   });
 
   afterEach(() => {
