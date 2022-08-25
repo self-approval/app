@@ -1,54 +1,54 @@
 {
-    "action": "created",
-    "issue": {
-      "html_url": "https://github.com/CubikTech/self-approval/issues/1",
-      "number": 1,
-      "user": {
-        "login": "Cubik65536",
-        "type": "User"
-      },
-      "reactions": {
-        "url": "https://api.github.com/repos/CubikLab/GitHub-App-Test-Lab/issues/10/reactions",
-        "total_count": 0,
-        "+1": 0,
-        "-1": 0,
-        "laugh": 0,
-        "hooray": 0,
-        "confused": 0,
-        "heart": 0,
-        "rocket": 0,
-        "eyes": 0
-      }
-    },
-    "comment": {
-      "id": 1214464178,
-      "user": {
-        "login": "Cubik65536",
-        "type": "User"
-      },
-      "body": "Issue Comment",
-      "reactions": {
-        "url": "https://api.github.com/repos/CubikLab/GitHub-App-Test-Lab/issues/comments/1214464178/reactions",
-        "total_count": 0,
-        "+1": 0,
-        "-1": 0,
-        "laugh": 0,
-        "hooray": 0,
-        "confused": 0,
-        "heart": 0,
-        "rocket": 0,
-        "eyes": 0
-      }
-    },
-    "repository": {
-      "name": "self-approval",
-      "full_name": "CubikTech/self-approval",
-      "owner": {
-        "login": "CubikTech"
-      }
-    },
-    "sender": {
+  "action": "created",
+  "issue": {
+    "html_url": "https://github.com/CubikTech/self-approval/issues/1",
+    "number": 1,
+    "user": {
       "login": "Cubik65536",
       "type": "User"
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/CubikLab/GitHub-App-Test-Lab/issues/10/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
     }
+  },
+  "comment": {
+    "id": 1214464178,
+    "user": {
+      "login": "Cubik65536",
+      "type": "User"
+    },
+    "body": "Issue Comment",
+    "reactions": {
+      "url": "https://api.github.com/repos/CubikLab/GitHub-App-Test-Lab/issues/comments/1214464178/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    }
+  },
+  "repository": {
+    "name": "self-approval",
+    "full_name": "CubikTech/self-approval",
+    "owner": {
+      "login": "CubikTech"
+    }
+  },
+  "sender": {
+    "login": "Cubik65536",
+    "type": "User"
   }
+}

@@ -1,58 +1,57 @@
 {
-    "action": "created",
-    "issue": {
-      "html_url": "https://github.com/CubikTech/self-approval/pull/1",
-      "number": 1,
-      "user": {
-        "login": "Cubik65536",
-        "type": "User"
-      },
-      "pull_request": {
-        "html_url": "https://github.com/CubikTech/self-approval/pull/1"
-      },
-      "reactions": {
-        "url": "https://api.github.com/repos/CubikTech/self-approval/issues/8/reactions",
-        "total_count": 0,
-        "+1": 0,
-        "-1": 0,
-        "laugh": 0,
-        "hooray": 0,
-        "confused": 0,
-        "heart": 0,
-        "rocket": 0,
-        "eyes": 0
-      }
+  "action": "created",
+  "issue": {
+    "html_url": "https://github.com/CubikTech/self-approval/pull/1",
+    "number": 1,
+    "user": {
+      "login": "Cubik65536",
+      "type": "User"
     },
-    "comment": {
-      "id": 1214464178,
-      "user": {
-        "login": "Octocat",
-        "type": "User"
-      },
-      "body": "I self-approve!",
-      "reactions": {
-        "url": "https://api.github.com/repos/CubikTech/self-approval/issues/comments/1214257100/reactions",
-        "total_count": 0,
-        "+1": 0,
-        "-1": 0,
-        "laugh": 0,
-        "hooray": 0,
-        "confused": 0,
-        "heart": 0,
-        "rocket": 0,
-        "eyes": 0
-      }
+    "pull_request": {
+      "html_url": "https://github.com/CubikTech/self-approval/pull/1"
     },
-    "repository": {
-      "name": "self-approval",
-      "full_name": "CubikTech/self-approval",
-      "owner": {
-        "login": "CubikTech"
-      }
-    },
-    "sender": {
+    "reactions": {
+      "url": "https://api.github.com/repos/CubikTech/self-approval/issues/8/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    }
+  },
+  "comment": {
+    "id": 1214464178,
+    "user": {
       "login": "Octocat",
       "type": "User"
+    },
+    "body": "I self-approve!",
+    "reactions": {
+      "url": "https://api.github.com/repos/CubikTech/self-approval/issues/comments/1214257100/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
     }
+  },
+  "repository": {
+    "name": "self-approval",
+    "full_name": "CubikTech/self-approval",
+    "owner": {
+      "login": "CubikTech"
+    }
+  },
+  "sender": {
+    "login": "Octocat",
+    "type": "User"
   }
-  
+}
