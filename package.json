@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": false,
   "description": "A GitHub App built with Probot and that allows Pull Request authors to self-approve their Pull Requests.",
-  "author": "Cubik Technology & Cubik65536",
+  "author": "iXOR Technology & Cubik65536",
   "license": "ISC",
-  "homepage": "https://github.com/CubikTech/self-approval",
+  "homepage": "https://github.com/iXORTech/self-approval",
   "keywords": [
     "probot",
     "github",

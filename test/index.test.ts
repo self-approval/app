@@ -57,7 +57,7 @@ describe("self-approve bot", () => {
 
     nock("https://api.github.com")
       .get(
-        "/repos/CubikTech/self-approval/contents/.github%2Fself-approval.yml"
+        "/repos/iXORTech/self-approval/contents/.github%2Fself-approval.yml"
       )
       .reply(200, config);
 
@@ -74,14 +74,14 @@ describe("self-approve bot", () => {
 
     nock("https://api.github.com")
       .get(
-        "/repos/CubikTech/self-approval/contents/.github%2Fself-approval.yml"
+        "/repos/iXORTech/self-approval/contents/.github%2Fself-approval.yml"
       )
       .reply(200, config);
 
     // Send not allowed message
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/1/comments", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/1/comments", (body: any) => {
             expect(body.body).toBe("You are not allowed to self-approve others Pull Request!");
             return true
           })
@@ -90,7 +90,7 @@ describe("self-approve bot", () => {
     // React with "-1" reaction
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
             expect(body.content).toBe("-1");
             return true
           })
@@ -109,14 +109,14 @@ describe("self-approve bot", () => {
 
     nock("https://api.github.com")
       .get(
-        "/repos/CubikTech/self-approval/contents/.github%2Fself-approval.yml"
+        "/repos/iXORTech/self-approval/contents/.github%2Fself-approval.yml"
       )
       .reply(200, config);
 
     // Send not allowed message
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/1/comments", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/1/comments", (body: any) => {
             expect(body.body).toBe("You are not allowed to use this command!");
             return true
           })
@@ -125,7 +125,7 @@ describe("self-approve bot", () => {
     // React with "-1" reaction
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
             expect(body.content).toBe("-1");
             return true
           })
@@ -144,14 +144,14 @@ describe("self-approve bot", () => {
 
     nock("https://api.github.com")
       .get(
-        "/repos/CubikTech/self-approval/contents/.github%2Fself-approval.yml"
+        "/repos/iXORTech/self-approval/contents/.github%2Fself-approval.yml"
       )
       .reply(200, config);
 
     // React with "+1" reaction
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
             expect(body.content).toBe("+1");
             return true
           })
@@ -159,7 +159,7 @@ describe("self-approve bot", () => {
 
     // Pull Request is approved
     nock('https://api.github.com')
-        .post('/repos/CubikTech/self-approval/pulls/1/reviews', (body: any) => {
+        .post('/repos/iXORTech/self-approval/pulls/1/reviews', (body: any) => {
           return body.event === 'APPROVE'
         })
         .reply(200)
@@ -167,7 +167,7 @@ describe("self-approve bot", () => {
     // React with "hooray" reaction
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
             expect(body.content).toBe("hooray");
             return true
           })
@@ -186,14 +186,14 @@ describe("self-approve bot", () => {
 
     nock("https://api.github.com")
       .get(
-        "/repos/CubikTech/self-approval/contents/.github%2Fself-approval.yml"
+        "/repos/iXORTech/self-approval/contents/.github%2Fself-approval.yml"
       )
       .reply(200, config);
 
     // React with "+1" reaction
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
             expect(body.content).toBe("+1");
             return true
           })
@@ -201,14 +201,14 @@ describe("self-approve bot", () => {
 
     // Pull Request is approved
     nock('https://api.github.com')
-        .post('/repos/CubikTech/self-approval/pulls/1/reviews', (body: any) => {
+        .post('/repos/iXORTech/self-approval/pulls/1/reviews', (body: any) => {
           return body.event === 'APPROVE'
         })
         .reply(200)
 
     // Label is added
     nock('https://api.github.com')
-        .post('/repos/CubikTech/self-approval/issues/1/labels', (body: any) => {
+        .post('/repos/iXORTech/self-approval/issues/1/labels', (body: any) => {
           return body.labels.includes('can-be-merged')
         })
         .reply(200)
@@ -216,7 +216,7 @@ describe("self-approve bot", () => {
     // React with "hooray" reaction
     nock("https://api.github.com")
         .post(
-          "/repos/CubikTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
             expect(body.content).toBe("hooray");
             return true
           })

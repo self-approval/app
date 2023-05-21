@@ -128,7 +128,7 @@ default_permissions:
 name: self-approval
 
 # The homepage of your GitHub App.
-url: https://github.com/CubikTech/self-approval
+url: https://github.com/iXORTech/self-approval
 
 # A description of the GitHub App.
 description: A GitHub App built with [Probot](https://github.com/probot/probot) that allows Pull Request authors to self-approve their Pull Requests.
