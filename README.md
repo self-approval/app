@@ -113,4 +113,4 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
-[ISC](LICENSE) © 2022 iXOR Technology & Cubik65536
+[ISC](LICENSE) © 2022-2023 iXOR Technology & Cubik65536
