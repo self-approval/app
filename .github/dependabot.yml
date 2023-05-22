@@ -3,9 +3,22 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'monthly'
+      interval: "daily"
+      # Check for GitHub Actions updates at 00:00 UTC
+      time: "00:00"
+    # Add assignees
+    assignees:
+      - "Cubik65536"
+    # Add reviewers
+    reviewers:
+      - "Cubik65536"
     commit-message:
-      prefix: 'chore'
-      prefix-development: 'chore'
+      prefix: 'build'
+      prefix-development: 'build'
       include: 'scope'
-      
+    # Specify labels for GitHub Actions pull requests
+    labels:
+      - "type:ci"
+      - "type:dependencies"
+      - "prio:high"
+    open-pull-requests-limit: 25
