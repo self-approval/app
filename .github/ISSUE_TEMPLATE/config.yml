@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Search or ask in Discussion
+    url: https://github.com/self-approval/app/discussions
+    about: Ask questions and discuss with self-approval maintainers and community
