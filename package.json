@@ -5,7 +5,7 @@
   "description": "A GitHub App built with Probot and that allows Pull Request authors to self-approve their Pull Requests.",
   "author": "iXOR Technology & Cubik65536",
   "license": "ISC",
-  "homepage": "https://github.com/iXORTech/self-approval",
+  "homepage": "https://github.com/self-approval/app",
   "keywords": [
     "probot",
     "github",
