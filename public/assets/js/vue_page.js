@@ -3,6 +3,9 @@
 var footerHTML =
     '<footer>' +
     '   <hr>' +
+    '   <div style="align-items: center; display: flex; justify-content: center; margin-bottom: 0.56em;">' +
+    '   <img src="powered-by-vercel.svg" alt="Powered by Vercel" width="auto" height="28">' +
+    '   </div>' +
     '   <a href="https://github.com/self-approval/app" title="GitHub"><i data-feather="github"></i></a> | ' +
     '   <a href="https://github.com/self-approval/app/blob/main/LICENSE">ISC License</a>' +
     '   &copy; 2022' +
