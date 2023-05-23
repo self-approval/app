@@ -3,7 +3,7 @@
 
 import nock from "nock";
 // Requiring our app implementation
-const myProbotApp = require("../src");
+const myProbotApp = require("../app");
 const { Probot, ProbotOctokit } = require("probot");
 
 const fs = require("fs");
