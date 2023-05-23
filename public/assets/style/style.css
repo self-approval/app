@@ -89,3 +89,17 @@ lgbt-purple {
     background-color: rgb(117, 7, 135);
     color: #fff;
 }
+
+.button {
+    background-color: rgb(0, 85, 140);
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button12px {
+    border-radius: 12px;
+}
