@@ -29,7 +29,7 @@
     "nock": "^13.3.1",
     "smee-client": "^1.2.3",
     "prettier": "^2.4.1",
-    "vercel": "^28.15.3"
+    "vercel": "^29.4.0"
   },
   "engines": {
     "node": ">= 10.13.0"
