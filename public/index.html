@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home | iXOR Technology</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="assets/style/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <div class="index-container">
+            <div class="content">
+                <div style="text-align:center;">
+                    <img style="max-height: 160px; max-width: 160px; width: 100%;" src="assets/self-approval-app-logo.png"
+                        alt="Logo">
+                    <h1>self-approval bot</h1>
+                    <p>
+                        A GitHub App built with
+                        <a href="https://github.com/probot/probot">Probot</a>
+                        that allows Pull Request authors to self-approve their Pull Requests.
+                    </p>
+                </div>
+                <footer v-html="footer"></footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mastodon verification -->
+    <a rel="me" href="https://mstdn.ixor.tech/@ixortech"></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="assets/js/vue_page.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>
