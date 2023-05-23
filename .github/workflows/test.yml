@@ -1,0 +1,15 @@
+name: Test & Coverage
+
+on: [pull_request, push]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: 20
+      - name: Run Code Test and Coverage Test
+        run: npm run test
