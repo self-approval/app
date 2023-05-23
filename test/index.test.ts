@@ -1,13 +1,12 @@
-// You can import your modules
-// import index from '../src/index'
-
 import nock from "nock";
-// Requiring our app implementation
-const myProbotApp = require("../app");
-const { Probot, ProbotOctokit } = require("probot");
 
-const fs = require("fs");
-const path = require("path");
+// Requiring our app implementation
+const app = require("../app");
+import { Probot, ProbotOctokit } from "probot";
+
+// Requiring our fixtures
+import fs from "fs";
+import path from "path";
 
 const privateKey = fs.readFileSync(
   path.join(__dirname, "fixtures/mock-cert.pem"),
@@ -28,7 +27,8 @@ describe("self-approve bot", () => {
         throttle: { enabled: false },
       }),
     });
-    myProbotApp(probot);
+    // Load our app into probot
+    probot.load(app);
   });
 
   test("Pull Request comment created by a bot", async () => {
