@@ -4,6 +4,7 @@
   "private": false,
   "description": "A GitHub App built with Probot and that allows Pull Request authors to self-approve their Pull Requests.",
   "author": "iXOR Technology & Cubik65536",
+  "repository": "https://github.com/self-approval/app",
   "license": "ISC",
   "homepage": "https://github.com/self-approval/app",
   "keywords": [
@@ -12,8 +13,9 @@
     "probot-app"
   ],
   "scripts": {
-    "build": "tsc",
-    "start": "probot run ./lib/index.js",
+    "start": "probot run ./app.js",
+    "lint": "prettier --check '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
+    "lint:fix": "prettier --write '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
     "test": "jest --coverage"
   },
   "dependencies": {
@@ -21,12 +23,13 @@
   },
   "devDependencies": {
     "@types/jest": "^28.1.0",
-    "@types/node": "^20.2.3",
+    "codecov": "^3.8.3",
+    "got": ">=11.8.5",
     "jest": "^26.6.3",
     "nock": "^13.3.1",
-    "smee-client": "^1.2.2",
-    "ts-jest": "^26.4.4",
-    "typescript": "^4.9.5"
+    "smee-client": "^1.2.3",
+    "prettier": "^2.4.1",
+    "vercel": "^28.15.3"
   },
   "engines": {
     "node": ">= 10.13.0"
