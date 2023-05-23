@@ -2,6 +2,8 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that allows Pull Request authors to self-approve their Pull Requests.
 
+[![Powered by Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)](https://vercel.com?utm_source=iXORTech&utm_campaign=oss)
+
 ![Screenshot](./screenshot.png)
 
 > Special thanks to [dkhmelenko/autoapproval](https://github.com/dkhmelenko/autoapproval) for providing some inspiration and also some code implementation for this App.
