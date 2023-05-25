@@ -29,7 +29,7 @@
     "nock": "^13.3.1",
     "smee-client": "^1.2.3",
     "prettier": "^2.4.1",
-    "vercel": "^29.4.0",
+    "vercel": "^30.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4"
   },
