@@ -27,7 +27,7 @@ module.exports = (app: Probot) => {
     }
 
     // Get the content of the comment
-    const comment = context.payload.comment.body.split(' ').slice(1).join(' ');;
+    const comment = context.payload.comment.body.split(' ').slice(1).join(' ');
     context.log("Comment: " + comment);
 
     // Read the configuration
