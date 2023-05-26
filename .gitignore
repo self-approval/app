@@ -1,7 +1,9 @@
-node_modules
+coverage/
+node_modules/
+out/
 npm-debug.log
+.DS_Store
+.env
+*.tsbuildinfo
 *.pem
 !mock-cert.pem
-.env
-coverage
-.DS_Store

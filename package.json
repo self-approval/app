@@ -13,7 +13,8 @@
     "probot-app"
   ],
   "scripts": {
-    "start": "probot run ./app.js",
+    "build": "tsc",
+    "start": "probot run ./out/app.js",
     "lint": "prettier --check '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
     "test": "jest --coverage"
