@@ -1,15 +1,10 @@
 import { Probot, Context } from "probot";
 
+const isMessageForApp = require("./lib/is-message-for-app");
+
 module.exports = (app: Probot) => {
   app.on(["issue_comment.created", "issue_comment.edited"], async (context) => {
     context.log("issue_comment.created or issue_comment.edited");
-
-    if (context.isBot) {
-      // Ignore comments if this issue was created by the bot=
-      context.log("This comment was created by the bot");
-      context.log("Execution finished\n\n");
-      return;
-    }
 
     if (!context.payload.issue.pull_request) {
       // Ignore comments if this issue is not a PR
@@ -18,8 +13,21 @@ module.exports = (app: Probot) => {
       return;
     }
 
+    if (context.isBot) {
+      // Ignore comments if this issue was created by the bot=
+      context.log("This comment was created by the bot");
+      context.log("Execution finished\n\n");
+      return;
+    }
+
+    if (!isMessageForApp(context)) {
+      context.log("This comment is not for the bot");
+      context.log("Execution finished\n\n");
+      return;
+    }
+
     // Get the content of the comment
-    const comment = context.payload.comment.body;
+    const comment = context.payload.comment.body.split(' ').slice(1).join(' ');;
     context.log("Comment: " + comment);
 
     // Read the configuration
