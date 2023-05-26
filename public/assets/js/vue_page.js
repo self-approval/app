@@ -16,8 +16,10 @@ var footerHTML =
     '   HTML theme designed by <a href="https://github.com/athul/archie" rel="nofollow noopener noreferrer">Archie Theme</a>, modified by <a href="https://github.com/KevinZonda" rel="nofollow noopener noreferrer">@KevinZonda</a>.' +
     '</footer>';
 
+// @ts-ignore
 function buildOnce(genApp, hookDom) {
-  var vueInstance = Vue.createApp(
+  // @ts-ignore
+    var vueInstance = Vue.createApp(
     Object.assign(
       {
         mounted() {
