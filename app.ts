@@ -36,6 +36,12 @@ module.exports = (app: Probot) => {
     // Check if the comment is a self-approval
     const isSelfApproval = config.self_approval_comments.includes(comment);
     if (!isSelfApproval) {
+      context.octokit.reactions.createForIssueComment({
+        owner: context.payload.repository.owner.login,
+        repo: context.payload.repository.name,
+        comment_id: context.payload.comment.id,
+        content: "confused"
+      });
       context.log("Not a self-approval comment");
       context.log("Execution finished\n\n");
       return;

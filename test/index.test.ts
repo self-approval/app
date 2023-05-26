@@ -64,6 +64,14 @@ describe("self-approve bot", () => {
       )
       .reply(200, config);
 
+    nock("https://api.github.com")
+        .post(
+          "/repos/iXORTech/self-approval/issues/comments/1214464178/reactions", (body: any) => {
+            expect(body.content).toBe("confused");
+            return true
+          })
+        .reply(200);
+
     // Receive a webhook event
     await probot.receive({ name: "issue_comment", payload });
 
