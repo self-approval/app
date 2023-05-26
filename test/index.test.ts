@@ -1,3 +1,4 @@
+// @ts-ignore
 import nock from "nock";
 
 // Requiring our app implementation
@@ -5,7 +6,9 @@ const app = require("../app");
 import { Probot, ProbotOctokit } from "probot";
 
 // Requiring our fixtures
+// @ts-ignore
 import fs from "fs";
+// @ts-ignore
 import path from "path";
 
 const privateKey = fs.readFileSync(
