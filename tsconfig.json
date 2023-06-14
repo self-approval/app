@@ -70,6 +70,6 @@
     "skipLibCheck": true
   },
   "include": ["."],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "build"],
   "compileOnSave": false
 }

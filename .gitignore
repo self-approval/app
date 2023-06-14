@@ -8,3 +8,4 @@ npm-debug.log
 *.tsbuildinfo
 *.pem
 !mock-cert.pem
+.vercel

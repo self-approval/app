@@ -3,7 +3,8 @@ import { Probot, Context } from "probot";
 const isMessageForApp = require("./lib/is-message-for-app");
 
 module.exports = (app: Probot) => {
-  app.on(["issue_comment.created", "issue_comment.edited"], async (context) => {
+  // @ts-ignore
+  app.on('issue_comment.created', async (context) => {
     context.log("issue_comment.created or issue_comment.edited");
 
     if (!context.payload.issue.pull_request) {
