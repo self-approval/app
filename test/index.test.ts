@@ -51,6 +51,16 @@ describe("self-approve bot", () => {
     expect(nock.isDone()).toBeTruthy();
   });
 
+  test("Comment added is not for bot", async () => {
+    const payload = require("./fixtures/pull_request.commented.not-for-bot.json");
+
+    // Receive a webhook event
+    await probot.receive({ name: "issue_comment", payload });
+
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    expect(nock.isDone()).toBeTruthy();
+  });
+
   test("Comment added is not a self-approval comment", async () => {
     const payload = require("./fixtures/pull_request.commented.not-self-approval.json");
     const config = "self_approval_comments:\n  - \"I self-approve!\"\nfrom_author:\n  - Cubik65536\napply_labels:\n  - \"can-be-merged\"";
