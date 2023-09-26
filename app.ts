@@ -21,7 +21,7 @@ module.exports = (app: Probot) => {
       return;
     }
 
-    if (!(new IsMessageForApp(context).verify)) {
+    if (!(new IsMessageForApp(context)).verify()) {
       context.log("This comment is not for the bot");
       context.log("Execution finished\n\n");
       return;
