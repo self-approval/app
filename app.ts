@@ -1,6 +1,6 @@
 import { Probot, Context } from "probot";
 
-const isMessageForApp = require("./lib/is-message-for-app");
+import { IsMessageForApp } from "./lib/is-message-for-app";
 
 module.exports = (app: Probot) => {
   // @ts-ignore
@@ -21,11 +21,12 @@ module.exports = (app: Probot) => {
       return;
     }
 
-    if (!isMessageForApp(context)) {
+    if (!(new IsMessageForApp(context).verify)) {
       context.log("This comment is not for the bot");
       context.log("Execution finished\n\n");
       return;
     }
+    context.log("\"" + context.payload.comment.body + "\" comment is for the bot")
 
     // Get the content of the comment
     const comment = context.payload.comment.body.split(' ').slice(1).join(' ');
