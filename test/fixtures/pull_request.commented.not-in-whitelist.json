@@ -29,7 +29,7 @@
       "login": "Cubik65536",
       "type": "User"
     },
-    "body": "I self-approve!",
+    "body": "@self-approval I self-approve!",
     "reactions": {
       "url": "https://api.github.com/repos/iXORTech/self-approval/issues/comments/1214257100/reactions",
       "total_count": 0,

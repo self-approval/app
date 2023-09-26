@@ -7,6 +7,7 @@
       "login": "Cubik65536",
       "type": "User"
     },
+    "labels": [],
     "pull_request": {
       "html_url": "https://github.com/iXORTech/self-approval/pull/1"
     },
@@ -26,10 +27,10 @@
   "comment": {
     "id": 1214464178,
     "user": {
-      "login": "Octocat",
+      "login": "Cubik65536",
       "type": "User"
     },
-    "body": "@self-approval I self-approve!",
+    "body": "I self-approve!",
     "reactions": {
       "url": "https://api.github.com/repos/iXORTech/self-approval/issues/comments/1214257100/reactions",
       "total_count": 0,

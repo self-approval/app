@@ -1,15 +1,11 @@
 import { Probot, Context } from "probot";
 
-module.exports = (app: Probot) => {
-  app.on(["issue_comment.created", "issue_comment.edited"], async (context) => {
-    context.log("issue_comment.created or issue_comment.edited");
+import { IsMessageForApp } from "./lib/is-message-for-app";
 
-    if (context.isBot) {
-      // Ignore comments if this issue was created by the bot=
-      context.log("This comment was created by the bot");
-      context.log("Execution finished\n\n");
-      return;
-    }
+module.exports = (app: Probot) => {
+  // @ts-ignore
+  app.on('issue_comment.created', async (context) => {
+    context.log("issue_comment.created or issue_comment.edited");
 
     if (!context.payload.issue.pull_request) {
       // Ignore comments if this issue is not a PR
@@ -18,8 +14,22 @@ module.exports = (app: Probot) => {
       return;
     }
 
+    if (context.isBot) {
+      // Ignore comments if this issue was created by the bot=
+      context.log("This comment was created by the bot");
+      context.log("Execution finished\n\n");
+      return;
+    }
+
+    if (!(new IsMessageForApp(context)).verify()) {
+      context.log("This comment is not for the bot");
+      context.log("Execution finished\n\n");
+      return;
+    }
+    context.log("\"" + context.payload.comment.body + "\" comment is for the bot")
+
     // Get the content of the comment
-    const comment = context.payload.comment.body;
+    const comment = context.payload.comment.body.split(' ').slice(1).join(' ');
     context.log("Comment: " + comment);
 
     // Read the configuration
@@ -28,6 +38,12 @@ module.exports = (app: Probot) => {
     // Check if the comment is a self-approval
     const isSelfApproval = config.self_approval_comments.includes(comment);
     if (!isSelfApproval) {
+      context.octokit.reactions.createForIssueComment({
+        owner: context.payload.repository.owner.login,
+        repo: context.payload.repository.name,
+        comment_id: context.payload.comment.id,
+        content: "confused"
+      });
       context.log("Not a self-approval comment");
       context.log("Execution finished\n\n");
       return;
