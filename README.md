@@ -98,6 +98,44 @@ If you want to update the app that is deployed on Vercel, you can follow the fol
 
 The [api/github/webhooks/index.ts](api/github/webhooks/index.ts) file is handling requests to `POST /api/github/webhooks`, so make sure to configure your GitHub App registration's webhook URL accordingly.
 
+## Configure GitHub Repository
+
+In order to use the bot, the config file should be provided. Config file should be defined in your repository. Config file is the yml file with the path `.github/self-approval-pull-request.yml`. And the file should have these 3 entries: `self_approval_comments`, `from_author` and `apply_labels`.
+
+### self_approval_comments
+
+Define the list of comments that will be considered as self-approval.
+
+```yml
+self_approval_comments:
+  - "I self-approve!"
+  - "I self-certify!"
+```
+
+### from_author
+
+Define the list of GitHub users who can self-approve their Pull Request.
+
+```yml
+from_author:
+  - "Cubik65536"
+  - "<GitHub ID of other project maintainer>"
+```
+
+Assign an empty array if you want everyone can self-approve their Pull Requests (example: `from_author: []`).
+
+### apply_labels
+
+Defines the list of labels on PR, which should be added once PR was approved. For example:
+
+```yml
+apply_labels:
+  - "can-be-merged"
+  - "self-approved"
+```
+
+Assign an empty array if no labels should be applied to PRs (example: `apply_labels: []`).
+
 ## License
 
 [ISC](LICENSE) © 2022-2023 iXOR Technology & Cubik65536
