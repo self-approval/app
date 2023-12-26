@@ -1,16 +1,16 @@
 {
-  "name": "@probot/example-vercel",
+  "name": "@self-approval/app",
   "version": "1.0.0",
-  "private": true,
-  "description": "Probot & Google Cloud Functions example",
+  "private": false,
+  "description": "A GitHub App built with Probot that allows Pull Request authors to self-approve their Pull Requests.",
   "scripts": {
     "start": "probot run ./dist/app.js",
     "build": "tsc",
     "test": "ts-node ./test/app.test.ts"
   },
-  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "author": "iXOR Technology & Cubik65536 <cubik65536@ixor.tech>",
   "license": "ISC",
-  "repository": "github:probot/example-vercel",
+  "repository": "https://github.com/self-approval/app",
   "dependencies": {
     "probot": "^12.3.0"
   },
