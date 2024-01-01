@@ -32,7 +32,7 @@
     "smee-client": "^2.0.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5.3.2",
-    "vercel": "^32.3.0"
+    "vercel": "^33.0.1"
   },
   "engines": {
     "node": ">= 10.13.0"
