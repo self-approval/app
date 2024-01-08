@@ -1,19 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello from Vercel</title>
-  </head>
-  <body>
-    <h1>Hello from Vercel</h1>
+<html>
 
-    <p>Edit this file in <code>public/index.html</code></p>
+<head>
+    <title>self-approval bot</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="assets/style/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
 
-    <p>
-      Your app receives webhook requests at
-      <code>POST /api/github/webhooks</code>
-    </p>
-  </body>
+<body>
+    <div id="page-wrapper">
+        <div class="index-container">
+            <div class="content">
+                <div style="text-align:center;">
+                    <img style="max-height: 160px; max-width: 160px; width: 100%;" src="assets/self-approval-app-logo.png"
+                        alt="Logo">
+                    <h1>self-approval bot</h1>
+                    <p>
+                        A GitHub App built with
+                        <a href="https://github.com/probot/probot">Probot</a>
+                        that allows Pull Request authors to self-approve their Pull Requests.
+                    </p>
+                    <p>
+                        If you've seen this page, it means that the bot is successfully deployed and running.
+                    </p>
+                </div>
+                <footer v-html="footer"></footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mastodon verification -->
+    <a rel="me" href="https://mstdn.ixor.tech/@ixortech"></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="assets/js/vue_page.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
 </html>
