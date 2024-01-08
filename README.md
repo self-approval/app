@@ -138,4 +138,4 @@ Assign an empty array if no labels should be applied to PRs (example: `apply_lab
 
 ## License
 
-[ISC](LICENSE) © 2022-2023 iXOR Technology & Cubik65536
+[ISC](LICENSE) © 2022-2024 iXOR Technology & Cubik65536
