@@ -107,7 +107,7 @@ In order to use the bot, the config file should be provided. Config file should 
 Define the list of comments that will be considered as self-approval.
 
 ```yml
-self_approval_comments:
+self_approval_messages:
   - "I self-approve!"
   - "I self-certify!"
 ```
