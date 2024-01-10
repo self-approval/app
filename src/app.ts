@@ -6,7 +6,7 @@ export default (app: Probot) => {
   app.log("Yay! The app was loaded!");
 
   app.on("issue_comment.created", async (context) => {
-    // if (!context.payload.issue.pull_request) return;  // ignore non-PR comments
+    if (!context.payload.issue.pull_request) return;  // ignore non-PR comments
     if (context.isBot) return;  // ignore bot comments
     if (!new IsMessageForApp(context).verify()) return; // ignore comments that don't mention the app
 
