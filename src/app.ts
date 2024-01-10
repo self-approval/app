@@ -70,5 +70,27 @@ export default (app: Probot) => {
         body: "@" + reviewUser.login + ", you are not allowed to self-approve your own PR."
       });
     }
+
+    // Otherwise, all conditions are met, so add a +1 reaction
+    context.octokit.reactions.createForIssueComment({
+        owner: context.payload.repository.owner.login,
+        repo: context.payload.repository.name,
+        comment_id: context.payload.comment.id,
+        content: "+1"
+    });
+
+    const pr = new PullRequestUtils(context);
+    // Then approve the pull request
+    await pr.approvePullRequest();
+    // And apply labels
+    await pr.applyLabels(config.apply_labels as string[]);
+
+    // Add a hooray reaction to confirm that all steps were completed and finish.
+    return context.octokit.reactions.createForIssueComment({
+      owner: context.payload.repository.owner.login,
+      repo: context.payload.repository.name,
+      comment_id: context.payload.comment.id,
+      content: "hooray"
+    });
   });
 };
