@@ -9,54 +9,40 @@ import { EmitterWebhookEvent } from "@octokit/webhooks";
 
 import app from "../src/app";
 
-let probot: Probot;
-const test = suite("app");
-test.before.each(() => {
-  probot = new Probot({
-    // simple authentication as alternative to appId/privateKey
-    githubToken: "test",
-    // disable logs
-    logLevel: "warn",
-    // disable request throttling and retries
-    Octokit: ProbotOctokit.defaults({
-      throttle: { enabled: false },
-      retry: { enabled: false },
-    }),
+let probot: any;
+
+describe("self-approve bot", () => {
+  beforeEach(() => {
+    probot = new Probot({
+      // simple authentication as alternative to appId/privateKey
+      githubToken: "test",
+      // disable logs
+      logLevel: "warn",
+      // disable request throttling and retries
+      Octokit: ProbotOctokit.defaults({
+        throttle: { enabled: false },
+        retry: { enabled: false },
+      }),
+    });
+    probot.load(app);
   });
-  probot.load(app);
+
+  afterEach(() => {
+    nock.cleanAll();
+    nock.enableNetConnect();
+  });
+
+  test("comment is added to an issue", async function () {
+    const payload = require("./fixtures/issue.commented.json");
+    await probot.receive({ name: "issue_comment", payload });
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    assert.equal(nock.isDone(), true);
+  });
+
+  test("comment is created by a bot", async function () {
+    const payload = require("./fixtures/pull_request.bot_commented.json");
+    await probot.receive({ name: "issue_comment", payload });
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    assert.equal(nock.isDone(), true);
+  });
 });
-
-// test("recieves issues.opened event", async function () {
-//   const mock = nock("https://api.github.com")
-//     // create new check run
-//     .post(
-//       "/repos/probot/example-vercel/issues/1/comments",
-//       (requestBody: Body) => {
-//         assert.equal(requestBody, { body: "Hello, World!" });
-//
-//         return true;
-//       }
-//     )
-//     .reply(201, {});
-//
-//   await probot.receive({
-//     name: "issues",
-//     id: "1",
-//     payload: {
-//       action: "opened",
-//       repository: {
-//         owner: {
-//           login: "probot",
-//         },
-//         name: "example-vercel",
-//       },
-//       issue: {
-//         number: 1,
-//       },
-//     },
-//   } as EmitterWebhookEvent<any>);
-//
-//   assert.equal(mock.activeMocks(), []);
-// });
-
-test.run();
