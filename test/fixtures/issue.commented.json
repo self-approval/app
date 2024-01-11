@@ -41,10 +41,10 @@
     }
   },
   "repository": {
-    "name": "self-approval",
+    "name": "app",
     "full_name": "self-approval/app",
     "owner": {
-      "login": "iXORTech"
+      "login": "self-approval"
     }
   },
   "sender": {
