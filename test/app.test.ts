@@ -36,21 +36,21 @@ describe("self-approve bot", () => {
     const payload = require("./fixtures/issue.commented.json");
     await probot.receive({ name: "issue_comment", payload });
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
-    assert.equal(nock.isDone(), true);
+    expect(nock.isDone()).toBeTruthy()
   });
 
   test("comment is created by a bot", async function () {
     const payload = require("./fixtures/pull_request.bot_commented.json");
     await probot.receive({ name: "issue_comment", payload });
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
-    assert.equal(nock.isDone(), true);
+    expect(nock.isDone()).toBeTruthy()
   });
 
   test("comment created does not mention the app", async function () {
     const payload = require("./fixtures/pull_request.commented.not-for-bot.json");
     await probot.receive({ name: "issue_comment", payload });
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
-    assert.equal(nock.isDone(), true);
+    expect(nock.isDone()).toBeTruthy()
   });
 
   test("comment added doesn't contain self-approval message", async () => {
