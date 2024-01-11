@@ -17,6 +17,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: npm
-          node-version: 21
+          node-version: 20
       - run: npm ci
       - run: npm test
