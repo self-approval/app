@@ -45,4 +45,11 @@ describe("self-approve bot", () => {
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
     assert.equal(nock.isDone(), true);
   });
+
+  test("comment created does not mention the app", async function () {
+    const payload = require("./fixtures/pull_request.commented.not-for-bot.json");
+    await probot.receive({ name: "issue_comment", payload });
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    assert.equal(nock.isDone(), true);
+  });
 });
