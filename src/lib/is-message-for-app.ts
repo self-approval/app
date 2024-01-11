@@ -11,10 +11,7 @@ export class IsMessageForApp {
     }
 
     verify() {
-        if ("comment" in this.context.payload) {
-            const lowerCaseMessage = this.context.payload.comment.body.toLowerCase();
-            return /@self-?approval(\[bot\])?\s/.test(lowerCaseMessage);
-        }
-        return false;
+        return ("comment" in this.context.payload)
+            && (/@self-?approval(\[bot\])?\s/.test(this.context.payload.comment.body.toLowerCase()))
     }
 }
