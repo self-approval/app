@@ -52,4 +52,28 @@ describe("self-approve bot", () => {
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
     assert.equal(nock.isDone(), true);
   });
+
+  test("comment added doesn't contain self-approval message", async () => {
+    const payload = require("./fixtures/pull_request.commented.not-self-approval.json");
+    const config = "self_approval_messages:\n  - \"I self-approve!\"\nfrom_author:\n  - Cubik65536\napply_labels:\n  - \"can-be-merged\"";
+
+    nock("https://api.github.com")
+      .get(
+        "/repos/self-approval/app/contents/.github%2Fself-approval.yml"
+      )
+      .reply(200, config);
+
+    nock("https://api.github.com")
+        .post(
+          "/repos/self-approval/app/issues/comments/1214257100/reactions", (body: any) => {
+            expect(body.content).toBe("confused");
+            return true
+          })
+        .reply(200);
+
+    // Receive a webhook event
+    await probot.receive({ name: "issue_comment", payload });
+
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+  });
 });

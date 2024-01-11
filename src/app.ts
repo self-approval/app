@@ -24,15 +24,10 @@ export default (app: Probot) => {
 
     // Get configuration
     const config: any = await context.config('self-approval.yml');
-    console.log("config: " + config);
 
     // The pull request and comment creators
     const issueUser = context.payload.issue.user;
     const reviewUser = context.payload.comment.user;
-    console.log("issueUser id: " + issueUser.id);
-    console.log("issueUser login: " + issueUser.login);
-    console.log("reviewUser id: " + reviewUser.id);
-    console.log("reviewUser login: " + reviewUser.login);
 
     // Get the comment sent by the user
     const comment = context.payload.comment.body;
