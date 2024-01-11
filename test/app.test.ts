@@ -75,5 +75,6 @@ describe("self-approve bot", () => {
     await probot.receive({ name: "issue_comment", payload });
 
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    expect(nock.isDone()).toBeTruthy()
   });
 });
