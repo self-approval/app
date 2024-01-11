@@ -1,0 +1,58 @@
+{
+  "action": "created",
+  "issue": {
+    "html_url": "https://github.com/self-approval/app/pull/1",
+    "number": 1,
+    "user": {
+      "login": "Cubik65536",
+      "type": "User"
+    },
+    "labels": [],
+    "pull_request": {
+      "html_url": "https://github.com/self-approval/app/pull/1"
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/self-approval/app/issues/1/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    }
+  },
+  "comment": {
+    "id": 1214257100,
+    "user": {
+      "login": "Cubik65536",
+      "type": "User"
+    },
+    "body": "I self-approve!",
+    "reactions": {
+      "url": "https://api.github.com/repos/self-approval/app/issues/comments/1214257100/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    }
+  },
+  "repository": {
+    "name": "self-approval",
+    "full_name": "self-approval/app",
+    "owner": {
+      "login": "iXORTech"
+    }
+  },
+  "sender": {
+    "login": "Octocat",
+    "type": "User"
+  }
+}
