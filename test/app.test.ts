@@ -1,11 +1,7 @@
-import { suite } from "uvu";
-import assert from "uvu/assert";
-
 import nock from "nock";
 nock.disableNetConnect();
 
 import { Probot, ProbotOctokit } from "probot";
-import { EmitterWebhookEvent } from "@octokit/webhooks";
 
 import app from "../src/app";
 
