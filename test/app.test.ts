@@ -73,4 +73,39 @@ describe("self-approve bot", () => {
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
     expect(nock.isDone()).toBeTruthy()
   });
+
+  test("comment creator is not the same as the pull request author", async () => {
+    const payload = require("./fixtures/pull_request.commented.not-same-user.json");
+    const config = "self_approval_messages:\n  - \"I self-approve!\"\nfrom_author:\n  - Cubik65536\napply_labels:\n  - \"can-be-merged\"";
+
+    nock("https://api.github.com")
+        .get(
+            "/repos/self-approval/app/contents/.github%2Fself-approval.yml"
+        )
+        .reply(200, config);
+
+    nock("https://api.github.com")
+        .post(
+            "/repos/self-approval/app/issues/comments/1214257100/reactions", (body: any) => {
+              expect(body.content).toBe("-1");
+              return true
+            })
+        .reply(200);
+
+    nock("https://api.github.com")
+        .post(
+            "/repos/self-approval/app/issues/1/comments", (body: any) => {
+              const message = body.body
+              expect(message.startsWith("@")).toBeTruthy()
+              expect(message.endsWith("you are not allowed to self-approve someone else's PR.")).toBeTruthy()
+              return true
+            })
+        .reply(200);
+
+    // Receive a webhook event
+    await probot.receive({ name: "issue_comment", payload });
+
+    await new Promise(process.nextTick); // Don't assert until all async processing finishes
+    expect(nock.isDone()).toBeTruthy()
+  });
 });
