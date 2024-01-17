@@ -43,14 +43,14 @@ describe("self-approve bot", () => {
   });
 
   test("comment created does not mention the app", async function () {
-    const payload = require("./fixtures/pull_request.commented.not-for-bot.json");
+    const payload = require("./fixtures/pull_request.commented.not_for_bot.json");
     await probot.receive({ name: "issue_comment", payload });
     await new Promise(process.nextTick); // Don't assert until all async processing finishes
     expect(nock.isDone()).toBeTruthy()
   });
 
   test("comment added doesn't contain self-approval message", async () => {
-    const payload = require("./fixtures/pull_request.commented.not-self-approval.json");
+    const payload = require("./fixtures/pull_request.commented.not_self_approval.json");
     const config = "self_approval_messages:\n  - \"I self-approve!\"\nfrom_author:\n  - Cubik65536\napply_labels:\n  - \"can-be-merged\"";
 
     nock("https://api.github.com")
@@ -75,7 +75,7 @@ describe("self-approve bot", () => {
   });
 
   test("comment creator is not the same as the pull request author", async () => {
-    const payload = require("./fixtures/pull_request.commented.not-same-user.json");
+    const payload = require("./fixtures/pull_request.commented.not_same_user.json");
     const config = "self_approval_messages:\n  - \"I self-approve!\"\nfrom_author:\n  - Cubik65536\napply_labels:\n  - \"can-be-merged\"";
 
     nock("https://api.github.com")
