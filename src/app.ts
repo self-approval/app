@@ -81,7 +81,7 @@ export default (app: Probot) => {
         owner: context.payload.repository.owner.login,
         repo: context.payload.repository.name,
         issue_number: context.payload.issue.number,
-        body: "@" + reviewUser.login + ", you are not allowed to self-approve your own PR."
+        body: "@" + reviewUser.login + ", you are not in the list of allowed users to self-approve your own PR."
       });
     }
 
