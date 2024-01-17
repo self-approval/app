@@ -5,6 +5,7 @@
     "number": 1,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "labels": [],
@@ -28,6 +29,7 @@
     "id": 1214257100,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "body": "I self-approve!",
@@ -52,7 +54,8 @@
     }
   },
   "sender": {
-    "login": "Octocat",
+    "login": "Cubik65536",
+    "id": 72877496,
     "type": "User"
   }
 }

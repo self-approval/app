@@ -5,6 +5,7 @@
     "number": 1,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "pull_request": {
@@ -27,6 +28,7 @@
     "id": 1214257100,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "body": "@self-approval I self-approve!",
@@ -51,7 +53,8 @@
     }
   },
   "sender": {
-    "login": "Octocat",
+    "login": "Cubik65536",
+    "id": 72877496,
     "type": "User"
   }
 }

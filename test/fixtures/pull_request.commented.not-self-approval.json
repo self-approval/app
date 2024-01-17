@@ -5,6 +5,7 @@
     "number": 1,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "pull_request": {
@@ -27,6 +28,7 @@
     "id": 1214257100,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "body": "@self-approval Issue Comment",
@@ -52,6 +54,7 @@
   },
   "sender": {
     "login": "Cubik65536",
+    "id": 72877496,
     "type": "User"
   }
 }

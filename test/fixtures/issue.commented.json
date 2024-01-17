@@ -5,6 +5,7 @@
     "number": 1,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "reactions": {
@@ -24,6 +25,7 @@
     "id": 1214464178,
     "user": {
       "login": "Cubik65536",
+      "id": 72877496,
       "type": "User"
     },
     "body": "Issue Comment",
@@ -49,6 +51,7 @@
   },
   "sender": {
     "login": "Cubik65536",
+    "id": 72877496,
     "type": "User"
   }
 }
