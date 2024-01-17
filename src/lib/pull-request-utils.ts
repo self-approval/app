@@ -16,7 +16,7 @@ export class PullRequestUtils {
     }
 
     async applyLabels(labels: string[]) {
-        if (labels.length === 0) return;
+        if (labels === null) return;
         // Try to apply existing labels to PR. If labels didn't exist, this call will fail.
         const labelParams = this.context.issue({ labels: labels });
         await this.context.octokit.issues.addLabels(labelParams);
