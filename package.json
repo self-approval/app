@@ -15,7 +15,7 @@
     "probot": "^12.3.0"
   },
   "devDependencies": {
-    "@octokit/webhooks": "^12.0.11",
+    "@octokit/webhooks": "^13.1.1",
     "@types/jest": "^29.5.12",
     "codecov": "^3.8.3",
     "jest": "^29.7.0",
