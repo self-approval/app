@@ -8,7 +8,7 @@
     "build": "tsc",
     "test": "jest --coverage"
   },
-  "author": "iXOR Technology & Cubik65536 <cubik65536@ixor.tech>",
+  "author": "iXOR Technology & Cubik65536 <cubik65536@ixor.dev>",
   "license": "ISC",
   "repository": "https://github.com/self-approval/app",
   "dependencies": {
